@@ -35,14 +35,15 @@ void linearSearch(int *numbers, int size, int lookingFor) {
   	printf("time: %.1lf\n", diff*1000000L);
 }
 
-int main(void) {
-	int SIZE = 25000000;
+int main(int argc, char * argv[]) {
+    int SIZE = atoi(argv[1]);
     int FIND_NUMBER = 1;
-	int *numbers = (int*)malloc(SIZE * sizeof(int));
-
-	loadNumbers("25m.txt", numbers, SIZE);
-	linearSearch(numbers, SIZE, FIND_NUMBER);
-    free(numbers);	
-
-	return 0;
+    
+    int * numbers = (int*) malloc(SIZE * sizeof(int));
+    
+    loadNumbers(argv[2], numbers, SIZE);
+    linearSearch(numbers, SIZE, FIND_NUMBER);
+    free(numbers);
+    
+    return 0;
 }
